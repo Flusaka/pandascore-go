@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/../pandascore/.idea/pandascore.iml" filepath="$PROJECT_DIR$/../pandascore/.idea/pandascore.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/pandascore-go.iml" filepath="$PROJECT_DIR$/.idea/pandascore-go.iml" />
     </modules>
   </component>
 </project>
