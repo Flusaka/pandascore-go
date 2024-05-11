@@ -3,22 +3,30 @@ package clients
 import (
 	"encoding/json"
 	"errors"
+	"github.com/flusaka/pandascore-go/clients/queries"
 	"net/http"
 )
 
 type RequestMethod string
+type Endpoint string
 
 const (
 	MethodGet RequestMethod = "GET"
+
+	EndpointUpcomingMatches Endpoint = "matches/upcoming"
 )
 
 type Request struct {
 	client   *baseClient
-	endpoint string
+	endpoint Endpoint
+	//Filter   Filter
+	rangeQuery queries.Range
+	//Sort     Sort
+	//Search   Search
 }
 
-func (r Request) Get(value interface{}) error {
-	request, err := buildHttpRequest(&r, MethodGet)
+func (r *Request) Get(value interface{}) error {
+	request, err := buildHttpRequest(r, MethodGet)
 	if err != nil {
 		return err
 	}
@@ -38,7 +46,7 @@ func (r Request) Get(value interface{}) error {
 }
 
 func buildHttpRequest(request *Request, method RequestMethod) (*http.Request, error) {
-	requestUrl := request.client.baseUrl.JoinPath(request.endpoint)
+	requestUrl := request.client.baseUrl.JoinPath(string(request.endpoint))
 
 	httpRequest, err := http.NewRequest(string(method), requestUrl.String(), nil)
 	if err != nil {

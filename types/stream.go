@@ -1,6 +1,6 @@
 package types
 
-type Stream struct {
+type BaseStream struct {
 	EmbedUrl string `json:"embed_url"`
 	Language string `json:"language"`
 	Main     bool   `json:"main"`

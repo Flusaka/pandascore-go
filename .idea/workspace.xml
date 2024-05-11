@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="ALL" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="dd5b1854-54c0-4fc6-a381-c46300c2e523" name="Changes" comment="Fix for GoLand files">
+      <change afterPath="$PROJECT_DIR$/clients/queries/filter.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/clients/queries/match.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/clients/queries/query.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/clients/queries/range.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/clients/queries/range_test.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/clients/query.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/types/game.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/types/league.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/types/match.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/types/team.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/types/tournament.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/types/video_game.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/clients/base.go" beforeDir="false" afterPath="$PROJECT_DIR$/clients/base.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/clients/base_test.go" beforeDir="false" afterPath="$PROJECT_DIR$/clients/base_test.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/clients/request.go" beforeDir="false" afterPath="$PROJECT_DIR$/clients/request.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/types/serie.go" beforeDir="false" afterPath="$PROJECT_DIR$/types/serie.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/types/stream.go" beforeDir="false" afterPath="$PROJECT_DIR$/types/stream.go" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Go File" />
+      </list>
+    </option>
+  </component>
+  <component name="GOROOT" url="file:///usr/local/go" />
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProjectId" id="2gFRHDXy9xSSMy0MXrK2oIGwL9c" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "DefaultGoTemplateProperty": "Go File",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.go.formatter.settings.were.checked": "true",
+    "RunOnceActivity.go.migrated.go.modules.settings": "true",
+    "RunOnceActivity.go.modules.go.list.on.any.changes.was.set": "true",
+    "RunOnceActivity.go.watchers.conflict.with.on.save.actions.check.performed": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "go.import.settings.migrated": "true",
+    "go.sdk.automatically.set": "true",
+    "last_opened_file_path": "/Users/neilarmitage/Documents/GitHub/pandascore-go"
+  }
+}]]></component>
+  <component name="RunManager" selected="Go Build.build">
+    <configuration name="build" type="GoApplicationRunConfiguration" factoryName="Go Application">
+      <module name="pandascore-go" />
+      <working_directory value="$PROJECT_DIR$" />
+      <kind value="PACKAGE" />
+      <package value="github.com/flusaka/pandascore-go" />
+      <directory value="$PROJECT_DIR$" />
+      <filePath value="$PROJECT_DIR$" />
+      <option name="run" value="false" />
+      <method v="2" />
+    </configuration>
+    <configuration name="TestBaseClient_GetUpcomingMatches in github.com/flusaka/pandascore-go/clients" type="GoTestRunConfiguration" factoryName="Go Test" temporary="true" nameIsGenerated="true">
+      <module name="pandascore-go" />
+      <working_directory value="$PROJECT_DIR$/clients" />
+      <root_directory value="$PROJECT_DIR$" />
+      <kind value="PACKAGE" />
+      <package value="github.com/flusaka/pandascore-go/clients" />
+      <directory value="$PROJECT_DIR$" />
+      <filePath value="$PROJECT_DIR$" />
+      <framework value="gotest" />
+      <pattern value="^\QTestBaseClient_GetUpcomingMatches\E$" />
+      <method v="2" />
+    </configuration>
+    <configuration name="TestGetRangeQueryKeyValues in github.com/flusaka/pandascore-go/clients/queries" type="GoTestRunConfiguration" factoryName="Go Test" temporary="true" nameIsGenerated="true">
+      <module name="pandascore-go" />
+      <working_directory value="$PROJECT_DIR$/clients/queries" />
+      <root_directory value="$PROJECT_DIR$" />
+      <kind value="PACKAGE" />
+      <package value="github.com/flusaka/pandascore-go/clients/queries" />
+      <directory value="$PROJECT_DIR$" />
+      <filePath value="$PROJECT_DIR$" />
+      <framework value="gotest" />
+      <pattern value="^\QTestGetRangeQueryKeyValues\E$" />
+      <method v="2" />
+    </configuration>
+    <configuration name="TestRange_GetRangeValues in github.com/flusaka/pandascore-go/clients/queries" type="GoTestRunConfiguration" factoryName="Go Test" temporary="true" nameIsGenerated="true">
+      <module name="pandascore-go" />
+      <working_directory value="$PROJECT_DIR$/clients/queries" />
+      <root_directory value="$PROJECT_DIR$" />
+      <kind value="PACKAGE" />
+      <package value="github.com/flusaka/pandascore-go/clients/queries" />
+      <directory value="$PROJECT_DIR$" />
+      <filePath value="$PROJECT_DIR$" />
+      <framework value="gotest" />
+      <pattern value="^\QTestRange_GetRangeValues\E$" />
+      <method v="2" />
+    </configuration>
+    <list>
+      <item itemvalue="Go Build.build" />
+      <item itemvalue="Go Test.TestBaseClient_GetUpcomingMatches in github.com/flusaka/pandascore-go/clients" />
+      <item itemvalue="Go Test.TestGetRangeQueryKeyValues in github.com/flusaka/pandascore-go/clients/queries" />
+      <item itemvalue="Go Test.TestRange_GetRangeValues in github.com/flusaka/pandascore-go/clients/queries" />
+    </list>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Go Test.TestGetRangeQueryKeyValues in github.com/flusaka/pandascore-go/clients/queries" />
+        <item itemvalue="Go Test.TestRange_GetRangeValues in github.com/flusaka/pandascore-go/clients/queries" />
+        <item itemvalue="Go Test.TestBaseClient_GetUpcomingMatches in github.com/flusaka/pandascore-go/clients" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Fix for GoLand files" />
+    <option name="LAST_COMMIT_MESSAGE" value="Fix for GoLand files" />
+  </component>
+  <component name="VgoProject">
+    <settings-migrated>true</settings-migrated>
+  </component>
+</project>

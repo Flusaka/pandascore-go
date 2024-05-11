@@ -18,11 +18,11 @@ func TestNewBaseClient(t *testing.T) {
 	})
 }
 
-func TestBaseClient_GetUpcomingTournaments(t *testing.T) {
+func TestBaseClient_GetUpcomingMatches(t *testing.T) {
 	accessToken := "8FG9WnjcQBp9FkS8PA6bTQAEKYQefsBhWBjOG_hC7VYu4vWLxNM"
 	baseClient := newBaseClient(GameDota2, accessToken)
 
-	upcomingTournaments, err := baseClient.GetUpcomingTournaments()
+	upcomingTournaments, err := baseClient.GetUpcomingMatches()
 	assert.Nil(t, err)
 	assert.NotNil(t, upcomingTournaments)
 }
