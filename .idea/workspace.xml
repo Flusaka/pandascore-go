@@ -5,23 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="dd5b1854-54c0-4fc6-a381-c46300c2e523" name="Changes" comment="Fix for GoLand files">
-      <change afterPath="$PROJECT_DIR$/clients/queries/filter.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/clients/queries/match.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/clients/queries/query.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/clients/queries/range.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/clients/queries/range_test.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/clients/query.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/types/game.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/types/league.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/types/match.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/types/team.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/types/tournament.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/types/video_game.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/clients/base.go" beforeDir="false" afterPath="$PROJECT_DIR$/clients/base.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/clients/base_test.go" beforeDir="false" afterPath="$PROJECT_DIR$/clients/base_test.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/clients/request.go" beforeDir="false" afterPath="$PROJECT_DIR$/clients/request.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/types/serie.go" beforeDir="false" afterPath="$PROJECT_DIR$/types/serie.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/types/stream.go" beforeDir="false" afterPath="$PROJECT_DIR$/types/stream.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/clients/query.go" beforeDir="false" afterPath="$PROJECT_DIR$/clients/query.go" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

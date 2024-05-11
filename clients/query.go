@@ -13,7 +13,7 @@ import "github.com/flusaka/pandascore-go/clients/queries"
 //}
 
 func (r *Request) WithRange(rangeQuery queries.Range) *Request {
-	r.Range = rangeQuery
+	r.rangeQuery = rangeQuery
 	return r
 }
 
