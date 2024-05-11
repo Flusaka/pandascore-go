@@ -1,14 +1,10 @@
 package queries
 
-import (
-	"time"
-)
-
 type MatchFilter struct {
 }
 
 type MatchRange struct {
-	BeginAt *ValueRange[time.Time] `key:"begin_at"`
+	BeginAt *DateRange `key:"begin_at"`
 }
 
 type MatchSort struct {

@@ -1,10 +1,12 @@
 package queries
 
-import "reflect"
+import (
+	"reflect"
+)
 
-type FieldParser func(value reflect.Value) string
+type FieldEncoder func(value reflect.Value) string
 
-func getReflectedKeyValues(q any, fieldParser FieldParser) map[string]string {
+func getReflectedKeyValues(q any, encoder FieldEncoder) map[string]string {
 	val := reflect.ValueOf(q)
 	keyValues := make(map[string]string)
 	numFields := val.NumField()
@@ -15,7 +17,7 @@ func getReflectedKeyValues(q any, fieldParser FieldParser) map[string]string {
 			continue
 		}
 
-		stringValue := fieldParser(val.Field(i))
+		stringValue := encoder(val.Field(i))
 		if stringValue == "" {
 			continue
 		}

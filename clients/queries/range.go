@@ -3,10 +3,21 @@ package queries
 import (
 	"fmt"
 	"reflect"
+	"time"
 )
 
 type Ranger interface {
 	GetRangeString() string
+}
+
+type DateRange struct {
+	Lower time.Time
+	Upper time.Time
+}
+
+func (d DateRange) GetRangeString() string {
+	// Date range format has to be in UTC and RFC3339/ISO8601 format
+	return fmt.Sprintf("%v,%v", d.Lower.UTC().Format(time.RFC3339), d.Upper.UTC().Format(time.RFC3339))
 }
 
 type ValueRange[T any] struct {

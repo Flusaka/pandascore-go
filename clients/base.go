@@ -21,8 +21,8 @@ type baseClient struct {
 	accessToken string
 }
 
-type Params struct {
-	Range queries.Range
+type Params[R queries.Range] struct {
+	Range R
 }
 
 func newBaseClient(game Game, accessToken string) *baseClient {
@@ -40,22 +40,14 @@ func (c *baseClient) Request(endpoint Endpoint) *Request {
 	}
 }
 
-func (c *baseClient) RequestWithParams(endpoint Endpoint, params Params) *Request {
-	return &Request{
-		client:     c,
-		endpoint:   endpoint,
-		rangeQuery: params.Range,
-	}
-}
-
 func (c *baseClient) GetUpcomingMatches() ([]types.BaseMatch, error) {
 	var matches []types.BaseMatch
 	err := c.Request(EndpointUpcomingMatches).Get(&matches)
 	return matches, err
 }
 
-func (c *baseClient) GetUpcomingMatchesWithParams(params Params) ([]types.BaseMatch, error) {
+func (c *baseClient) GetUpcomingMatchesWithParams(params Params[queries.MatchRange]) ([]types.BaseMatch, error) {
 	var matches []types.BaseMatch
-	err := c.RequestWithParams(EndpointUpcomingMatches, params).Get(&matches)
+	err := c.Request(EndpointUpcomingMatches).WithRange(params.Range).Get(&matches)
 	return matches, err
 }

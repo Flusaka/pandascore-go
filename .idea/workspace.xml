@@ -5,7 +5,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="dd5b1854-54c0-4fc6-a381-c46300c2e523" name="Changes" comment="Fix for GoLand files">
-      <change beforePath="$PROJECT_DIR$/clients/query.go" beforeDir="false" afterPath="$PROJECT_DIR$/clients/query.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/clients/base.go" beforeDir="false" afterPath="$PROJECT_DIR$/clients/base.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/clients/base_test.go" beforeDir="false" afterPath="$PROJECT_DIR$/clients/base_test.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/clients/queries/match.go" beforeDir="false" afterPath="$PROJECT_DIR$/clients/queries/match.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/clients/queries/query.go" beforeDir="false" afterPath="$PROJECT_DIR$/clients/queries/query.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/clients/queries/range.go" beforeDir="false" afterPath="$PROJECT_DIR$/clients/queries/range.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/clients/request.go" beforeDir="false" afterPath="$PROJECT_DIR$/clients/request.go" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -46,7 +52,7 @@
     "last_opened_file_path": "/Users/neilarmitage/Documents/GitHub/pandascore-go"
   }
 }]]></component>
-  <component name="RunManager" selected="Go Build.build">
+  <component name="RunManager" selected="Go Test.TestBaseClient_GetUpcomingMatchesWithParams in github.com/flusaka/pandascore-go/clients">
     <configuration name="build" type="GoApplicationRunConfiguration" factoryName="Go Application">
       <module name="pandascore-go" />
       <working_directory value="$PROJECT_DIR$" />
@@ -67,6 +73,18 @@
       <filePath value="$PROJECT_DIR$" />
       <framework value="gotest" />
       <pattern value="^\QTestBaseClient_GetUpcomingMatches\E$" />
+      <method v="2" />
+    </configuration>
+    <configuration name="TestBaseClient_GetUpcomingMatchesWithParams in github.com/flusaka/pandascore-go/clients" type="GoTestRunConfiguration" factoryName="Go Test" temporary="true" nameIsGenerated="true">
+      <module name="pandascore-go" />
+      <working_directory value="$PROJECT_DIR$/clients" />
+      <root_directory value="$PROJECT_DIR$" />
+      <kind value="PACKAGE" />
+      <package value="github.com/flusaka/pandascore-go/clients" />
+      <directory value="$PROJECT_DIR$" />
+      <filePath value="$PROJECT_DIR$" />
+      <framework value="gotest" />
+      <pattern value="^\QTestBaseClient_GetUpcomingMatchesWithParams\E$" />
       <method v="2" />
     </configuration>
     <configuration name="TestGetRangeQueryKeyValues in github.com/flusaka/pandascore-go/clients/queries" type="GoTestRunConfiguration" factoryName="Go Test" temporary="true" nameIsGenerated="true">
@@ -95,12 +113,14 @@
     </configuration>
     <list>
       <item itemvalue="Go Build.build" />
+      <item itemvalue="Go Test.TestBaseClient_GetUpcomingMatchesWithParams in github.com/flusaka/pandascore-go/clients" />
       <item itemvalue="Go Test.TestBaseClient_GetUpcomingMatches in github.com/flusaka/pandascore-go/clients" />
       <item itemvalue="Go Test.TestGetRangeQueryKeyValues in github.com/flusaka/pandascore-go/clients/queries" />
       <item itemvalue="Go Test.TestRange_GetRangeValues in github.com/flusaka/pandascore-go/clients/queries" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Go Test.TestBaseClient_GetUpcomingMatchesWithParams in github.com/flusaka/pandascore-go/clients" />
         <item itemvalue="Go Test.TestGetRangeQueryKeyValues in github.com/flusaka/pandascore-go/clients/queries" />
         <item itemvalue="Go Test.TestRange_GetRangeValues in github.com/flusaka/pandascore-go/clients/queries" />
         <item itemvalue="Go Test.TestBaseClient_GetUpcomingMatches in github.com/flusaka/pandascore-go/clients" />
