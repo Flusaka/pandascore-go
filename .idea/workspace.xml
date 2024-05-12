@@ -5,13 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="dd5b1854-54c0-4fc6-a381-c46300c2e523" name="Changes" comment="Fix for GoLand files">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/clients/base.go" beforeDir="false" afterPath="$PROJECT_DIR$/clients/base.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/clients/base_test.go" beforeDir="false" afterPath="$PROJECT_DIR$/clients/base_test.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/clients/queries/match.go" beforeDir="false" afterPath="$PROJECT_DIR$/clients/queries/match.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/clients/queries/query.go" beforeDir="false" afterPath="$PROJECT_DIR$/clients/queries/query.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/clients/queries/range.go" beforeDir="false" afterPath="$PROJECT_DIR$/clients/queries/range.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/clients/request.go" beforeDir="false" afterPath="$PROJECT_DIR$/clients/request.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/clients/queries/range_test.go" beforeDir="false" afterPath="$PROJECT_DIR$/clients/queries/range_test.go" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
