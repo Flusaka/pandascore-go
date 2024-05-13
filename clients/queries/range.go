@@ -10,6 +10,10 @@ type Ranger interface {
 	GetRangeString() string
 }
 
+type Range interface {
+	GetRangeQuery() map[string]string
+}
+
 type DateRange struct {
 	Lower time.Time
 	Upper time.Time
@@ -27,10 +31,6 @@ type ValueRange[T any] struct {
 
 func (v ValueRange[T]) GetRangeString() string {
 	return fmt.Sprintf("%v,%v", v.Lower, v.Upper)
-}
-
-type Range interface {
-	GetRangeQuery() map[string]string
 }
 
 func GetRangeQueryKeyValues(r Range) map[string]string {

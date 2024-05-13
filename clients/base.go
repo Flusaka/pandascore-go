@@ -21,8 +21,9 @@ type baseClient struct {
 	accessToken string
 }
 
-type Params[R queries.Range] struct {
+type Params[R queries.Range, So queries.Sort] struct {
 	Range R
+	Sort  So
 }
 
 func newBaseClient(game Game, accessToken string) *baseClient {
@@ -46,8 +47,8 @@ func (c *baseClient) GetUpcomingMatches() ([]types.BaseMatch, error) {
 	return matches, err
 }
 
-func (c *baseClient) GetUpcomingMatchesWithParams(params Params[queries.MatchRange]) ([]types.BaseMatch, error) {
+func (c *baseClient) GetUpcomingMatchesWithParams(params Params[queries.MatchRange, queries.MatchSort]) ([]types.BaseMatch, error) {
 	var matches []types.BaseMatch
-	err := c.Request(EndpointUpcomingMatches).WithRange(params.Range).Get(&matches)
+	err := c.Request(EndpointUpcomingMatches).WithRange(params.Range).WithSort(params.Sort).Get(&matches)
 	return matches, err
 }

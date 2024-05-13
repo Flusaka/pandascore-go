@@ -33,13 +33,16 @@ func TestBaseClient_GetUpcomingMatchesWithParams(t *testing.T) {
 	accessToken := "8FG9WnjcQBp9FkS8PA6bTQAEKYQefsBhWBjOG_hC7VYu4vWLxNM"
 	baseClient := newBaseClient(GameDota2, accessToken)
 
-	upcomingMatches, err := baseClient.GetUpcomingMatchesWithParams(Params[queries.MatchRange]{
+	upcomingMatches, err := baseClient.GetUpcomingMatchesWithParams(Params[queries.MatchRange, queries.MatchSort]{
 		Range: queries.MatchRange{
 			BeginAt: &queries.DateRange{
 				Lower: time.Now().Truncate(time.Hour * 24),
 				Upper: time.Now().Truncate(time.Hour * 24).Add(time.Hour * 24),
 			},
 		},
+		Sort: queries.NewMatchSort(queries.MatchSortFields{
+			queries.MatchSortBeginAt: false,
+		}),
 	})
 	assert.Nil(t, err)
 	assert.NotNil(t, upcomingMatches)

@@ -7,6 +7,7 @@ import (
 	"io"
 	"net/http"
 	"net/url"
+	"strings"
 )
 
 type RequestMethod string
@@ -23,7 +24,7 @@ type Request struct {
 	endpoint Endpoint
 	//Filter   Filter
 	rangeQuery queries.Range
-	//Sort     Sort
+	sortQuery  queries.Sort
 	//Search   Search
 }
 
@@ -65,11 +66,19 @@ func buildHttpRequest(request *Request, method RequestMethod) (*http.Request, er
 
 func getQueryString(request *Request, query url.Values) string {
 	addQueryParameters("range", request.rangeQuery.GetRangeQuery(), query)
+	addSortParameters(request.sortQuery.GetSortFields(), query)
 	return query.Encode()
 }
 
 func addQueryParameters(parameter string, parameters map[string]string, query url.Values) {
 	for key, value := range parameters {
 		query.Set(fmt.Sprintf("%s[%s]", parameter, key), value)
+	}
+}
+
+func addSortParameters(fields queries.SortFields, query url.Values) {
+	if len(fields) > 0 {
+		sortQuery := strings.Join(fields, ",")
+		query.Set("sort", sortQuery)
 	}
 }

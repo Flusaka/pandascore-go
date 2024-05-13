@@ -17,15 +17,11 @@ func (r *Request) WithRange(rangeQuery queries.Range) *Request {
 	return r
 }
 
-//func (r *Request) WithSort(sort Sort) *Request {
-//	if r.Sort != nil {
-//		r.Sort.Merge(sort)
-//	} else {
-//		r.Sort = sort
-//	}
-//	return r
-//}
-//
+func (r *Request) WithSort(sort queries.Sort) *Request {
+	r.sortQuery = sort
+	return r
+}
+
 //func (r *Request) WithSearch(search Search) *Request {
 //	if r.Search != nil {
 //		r.Search.Merge(search)
