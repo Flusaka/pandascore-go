@@ -76,9 +76,18 @@ func addQueryParameters(parameter string, parameters map[string]string, query ur
 	}
 }
 
-func addSortParameters(fields queries.SortFields, query url.Values) {
+func addSortParameters(fields []queries.SortField, query url.Values) {
 	if len(fields) > 0 {
-		sortQuery := strings.Join(fields, ",")
+		sortFields := make([]string, len(fields))
+		for i, sf := range fields {
+			fieldString := ""
+			if sf.IsDescending() {
+				fieldString += "-"
+			}
+			fieldString += sf.GetFieldName()
+			sortFields[i] = fieldString
+		}
+		sortQuery := strings.Join(sortFields, ",")
 		query.Set("sort", sortQuery)
 	}
 }

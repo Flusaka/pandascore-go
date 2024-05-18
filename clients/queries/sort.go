@@ -1,7 +1,10 @@
 package queries
 
-type SortFields []string
+type SortField interface {
+	GetFieldName() string
+	IsDescending() bool
+}
 
 type Sort interface {
-	GetSortFields() SortFields
+	GetSortFields() []SortField
 }

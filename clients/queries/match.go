@@ -7,8 +7,6 @@ const (
 	MatchSortTournamentId MatchSortFieldKey = "tournament_id"
 )
 
-type MatchSortFields map[MatchSortFieldKey]bool
-
 type MatchFilter struct {
 }
 
@@ -16,11 +14,16 @@ type MatchRange struct {
 	BeginAt *DateRange `key:"begin_at"`
 }
 
-type MatchSort struct {
-	sortFields MatchSortFields
+type MatchSortField struct {
+	FieldName  MatchSortFieldKey
+	Descending bool
 }
 
-func NewMatchSort(sortFields MatchSortFields) MatchSort {
+type MatchSort struct {
+	sortFields []MatchSortField
+}
+
+func NewMatchSort(sortFields []MatchSortField) MatchSort {
 	sort := MatchSort{
 		sortFields: sortFields,
 	}
@@ -40,15 +43,18 @@ func (r MatchRange) GetRangeQuery() map[string]string {
 
 // region MatchSort implementation
 
-func (r MatchSort) GetSortFields() SortFields {
-	sortFields := make(SortFields, 0, len(r.sortFields))
-	for key, value := range r.sortFields {
-		query := ""
-		if value {
-			query += "-"
-		}
-		query += string(key)
-		sortFields = append(sortFields, query)
+func (f MatchSortField) GetFieldName() string {
+	return string(f.FieldName)
+}
+
+func (f MatchSortField) IsDescending() bool {
+	return f.Descending
+}
+
+func (s MatchSort) GetSortFields() []SortField {
+	sortFields := make([]SortField, len(s.sortFields))
+	for i, msf := range s.sortFields {
+		sortFields[i] = msf
 	}
 	return sortFields
 }
