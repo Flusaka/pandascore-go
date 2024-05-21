@@ -16,13 +16,16 @@ type Endpoint string
 const (
 	MethodGet RequestMethod = "GET"
 
-	EndpointUpcomingMatches Endpoint = "matches/upcoming"
+	EndpointUpcomingMatches     Endpoint = "matches/upcoming"
+	EndpointUpcomingTournaments Endpoint = "tournaments/upcoming"
+
+	EndpointRunningTournaments Endpoint = "tournaments/running"
 )
 
 type Request struct {
-	client   *baseClient
-	endpoint Endpoint
-	//Filter   Filter
+	client     *baseClient
+	endpoint   Endpoint
+	filter     queries.Filter
 	rangeQuery queries.Range
 	sortQuery  queries.Sort
 	//Search   Search
@@ -65,8 +68,15 @@ func buildHttpRequest(request *Request, method RequestMethod) (*http.Request, er
 }
 
 func getQueryString(request *Request, query url.Values) string {
-	addQueryParameters("range", request.rangeQuery.GetRangeQuery(), query)
-	addSortParameters(request.sortQuery.GetSortFields(), query)
+	if request.filter != nil {
+		addQueryParameters("filter", request.filter.GetFilterQuery(), query)
+	}
+	if request.rangeQuery != nil {
+		addQueryParameters("range", request.rangeQuery.GetRangeQuery(), query)
+	}
+	if request.sortQuery != nil {
+		addSortParameters(request.sortQuery.GetSortFields(), query)
+	}
 	return query.Encode()
 }
 

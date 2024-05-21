@@ -14,16 +14,6 @@ type Range interface {
 	GetRangeQuery() map[string]string
 }
 
-type DateRange struct {
-	Lower time.Time
-	Upper time.Time
-}
-
-func (d DateRange) GetRangeString() string {
-	// Date range format has to be in UTC and RFC3339/ISO8601 format
-	return fmt.Sprintf("%v,%v", d.Lower.UTC().Format(time.RFC3339), d.Upper.UTC().Format(time.RFC3339))
-}
-
 type ValueRange[T any] struct {
 	Lower T
 	Upper T
@@ -31,6 +21,16 @@ type ValueRange[T any] struct {
 
 func (v ValueRange[T]) GetRangeString() string {
 	return fmt.Sprintf("%v,%v", v.Lower, v.Upper)
+}
+
+type StringRange = ValueRange[string]
+type BoolRange = ValueRange[bool]
+type IntRange = ValueRange[int]
+type DateRange ValueRange[time.Time]
+
+func (d DateRange) GetRangeString() string {
+	// Date range format has to be in UTC and RFC3339/ISO8601 format
+	return fmt.Sprintf("%v,%v", d.Lower.UTC().Format(time.RFC3339), d.Upper.UTC().Format(time.RFC3339))
 }
 
 func GetRangeQueryKeyValues(r Range) map[string]string {

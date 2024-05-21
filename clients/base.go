@@ -21,12 +21,14 @@ type baseClient struct {
 	accessToken string
 }
 
-type Params[R queries.Range, So queries.Sort] struct {
-	Range R
-	Sort  So
+type Params[F queries.Filter, R queries.Range, So queries.Sort] struct {
+	Filter F
+	Range  R
+	Sort   So
 }
 
-type MatchParams = Params[queries.MatchRange, queries.MatchSort]
+type TournamentParams = Params[queries.TournamentFilter, queries.TournamentRange, queries.TournamentSort]
+type MatchParams = Params[queries.MatchFilter, queries.MatchRange, queries.MatchSort]
 
 func newBaseClient(game Game, accessToken string) *baseClient {
 	return &baseClient{
@@ -51,6 +53,30 @@ func (c *baseClient) GetUpcomingMatches() ([]types.BaseMatch, error) {
 
 func (c *baseClient) GetUpcomingMatchesWithParams(params MatchParams) ([]types.BaseMatch, error) {
 	var matches []types.BaseMatch
-	err := c.Request(EndpointUpcomingMatches).WithRange(params.Range).WithSort(params.Sort).Get(&matches)
+	err := c.Request(EndpointUpcomingMatches).WithFilter(params.Filter).WithRange(params.Range).WithSort(params.Sort).Get(&matches)
 	return matches, err
+}
+
+func (c *baseClient) GetUpcomingTournaments() ([]types.BaseTournament, error) {
+	var tournaments []types.BaseTournament
+	err := c.Request(EndpointUpcomingTournaments).Get(&tournaments)
+	return tournaments, err
+}
+
+func (c *baseClient) GetUpcomingTournamentsWithParams(params TournamentParams) ([]types.BaseTournament, error) {
+	var tournaments []types.BaseTournament
+	err := c.Request(EndpointUpcomingTournaments).WithFilter(params.Filter).WithRange(params.Range).WithSort(params.Sort).Get(&tournaments)
+	return tournaments, err
+}
+
+func (c *baseClient) GetRunningTournaments() ([]types.BaseTournament, error) {
+	var tournaments []types.BaseTournament
+	err := c.Request(EndpointRunningTournaments).Get(&tournaments)
+	return tournaments, err
+}
+
+func (c *baseClient) GetRunningTournamentsWithParams(params TournamentParams) ([]types.BaseTournament, error) {
+	var tournaments []types.BaseTournament
+	err := c.Request(EndpointRunningTournaments).WithFilter(params.Filter).WithRange(params.Range).WithSort(params.Sort).Get(&tournaments)
+	return tournaments, err
 }

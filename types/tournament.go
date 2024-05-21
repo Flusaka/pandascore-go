@@ -2,6 +2,17 @@ package types
 
 import "time"
 
+type Tier string
+
+const (
+	TierS        Tier = "s"
+	TierA        Tier = "a"
+	TierB        Tier = "b"
+	TierC        Tier = "c"
+	TierD        Tier = "d"
+	TierUnranked Tier = "unranked"
+)
+
 type BaseTournament struct {
 	BeginAt       time.Time `json:"begin_at"`
 	DetailedStats bool      `json:"detailed_stats"`
@@ -14,7 +25,7 @@ type BaseTournament struct {
 	Name          string    `json:"name"`
 	SerieId       int       `json:"serie_id"`
 	Slug          string    `json:"slug"`
-	Tier          string    `json:"tier"`
+	Tier          Tier      `json:"tier"`
 	WinnerId      *int      `json:"winner_id"`
 	WinnerType    string    `json:"winner_type"`
 }
