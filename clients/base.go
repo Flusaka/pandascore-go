@@ -27,6 +27,7 @@ type Params[R queries.Range, So queries.Sort] struct {
 }
 
 type MatchParams = Params[queries.MatchRange, queries.MatchSort]
+type TournamentParams = Params[queries.TournamentRange, queries.TournamentSort]
 
 func newBaseClient(game Game, accessToken string) *baseClient {
 	return &baseClient{
@@ -43,14 +44,38 @@ func (c *baseClient) Request(endpoint Endpoint) *Request {
 	}
 }
 
-func (c *baseClient) GetUpcomingMatches() ([]types.BaseMatch, error) {
-	var matches []types.BaseMatch
+func (c *baseClient) GetUpcomingMatches() ([]types.Match, error) {
+	var matches []types.Match
 	err := c.Request(EndpointUpcomingMatches).Get(&matches)
 	return matches, err
 }
 
-func (c *baseClient) GetUpcomingMatchesWithParams(params MatchParams) ([]types.BaseMatch, error) {
-	var matches []types.BaseMatch
+func (c *baseClient) GetUpcomingMatchesWithParams(params MatchParams) ([]types.Match, error) {
+	var matches []types.Match
 	err := c.Request(EndpointUpcomingMatches).WithRange(params.Range).WithSort(params.Sort).Get(&matches)
 	return matches, err
+}
+
+func (c *baseClient) GetUpcomingTournaments() ([]types.Tournament, error) {
+	var tournaments []types.Tournament
+	err := c.Request(EndpointUpcomingTournaments).Get(&tournaments)
+	return tournaments, err
+}
+
+func (c *baseClient) GetUpcomingTournamentsWithParams(params TournamentParams) ([]types.Tournament, error) {
+	var tournaments []types.Tournament
+	err := c.Request(EndpointUpcomingTournaments).WithRange(params.Range).WithSort(params.Sort).Get(&tournaments)
+	return tournaments, err
+}
+
+func (c *baseClient) GetRunningTournaments() ([]types.Tournament, error) {
+	var tournaments []types.Tournament
+	err := c.Request(EndpointRunningTournaments).Get(&tournaments)
+	return tournaments, err
+}
+
+func (c *baseClient) GetRunningTournamentsWithParams(params TournamentParams) ([]types.Tournament, error) {
+	var tournaments []types.Tournament
+	err := c.Request(EndpointRunningTournaments).WithRange(params.Range).WithSort(params.Sort).Get(&tournaments)
+	return tournaments, err
 }

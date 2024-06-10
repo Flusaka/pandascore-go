@@ -54,3 +54,29 @@ func TestBaseClient_GetUpcomingMatchesWithParams(t *testing.T) {
 	assert.Nil(t, err)
 	assert.NotNil(t, upcomingMatches)
 }
+
+func TestBaseClient_GetUpcomingTournaments(t *testing.T) {
+	accessToken := "8FG9WnjcQBp9FkS8PA6bTQAEKYQefsBhWBjOG_hC7VYu4vWLxNM"
+	baseClient := newBaseClient(GameDota2, accessToken)
+
+	upcomingTournaments, err := baseClient.GetUpcomingTournaments()
+	assert.Nil(t, err)
+	assert.NotNil(t, upcomingTournaments)
+}
+
+func TestBaseClient_GetUpcomingTournamentsWithParams(t *testing.T) {
+	accessToken := "8FG9WnjcQBp9FkS8PA6bTQAEKYQefsBhWBjOG_hC7VYu4vWLxNM"
+	baseClient := newBaseClient(GameDota2, accessToken)
+
+	upcomingTournaments, err := baseClient.GetUpcomingTournamentsWithParams(TournamentParams{
+		Range: queries.TournamentRange{},
+		Sort: queries.NewTournamentSort([]queries.TournamentSortField{
+			{
+				FieldName:  queries.TournamentSortBeginAt,
+				Descending: false,
+			},
+		}),
+	})
+	assert.Nil(t, err)
+	assert.NotNil(t, upcomingTournaments)
+}

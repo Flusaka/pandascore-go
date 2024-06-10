@@ -17,15 +17,20 @@ const (
 	MethodGet RequestMethod = "GET"
 
 	EndpointUpcomingMatches Endpoint = "matches/upcoming"
+
+	// EndpointUpcomingTournaments is the endpoint to retrieve all upcoming tournaments
+	EndpointUpcomingTournaments Endpoint = "tournaments/upcoming"
+	// EndpointRunningTournaments is the endpoint to retrieve all currently running tournaments
+	EndpointRunningTournaments Endpoint = "tournaments/running"
 )
 
 type Request struct {
-	client   *baseClient
-	endpoint Endpoint
-	//Filter   Filter
+	client     *baseClient
+	endpoint   Endpoint
+	filter     queries.Filter
 	rangeQuery queries.Range
 	sortQuery  queries.Sort
-	//Search   Search
+	//Search   queries.Search
 }
 
 func (r *Request) Get(value interface{}) error {
@@ -65,8 +70,12 @@ func buildHttpRequest(request *Request, method RequestMethod) (*http.Request, er
 }
 
 func getQueryString(request *Request, query url.Values) string {
-	addQueryParameters("range", request.rangeQuery.GetRangeQuery(), query)
-	addSortParameters(request.sortQuery.GetSortFields(), query)
+	if request.rangeQuery != nil {
+		addQueryParameters("range", request.rangeQuery.GetRangeQuery(), query)
+	}
+	if request.sortQuery != nil {
+		addSortParameters(request.sortQuery.GetSortFields(), query)
+	}
 	return query.Encode()
 }
 

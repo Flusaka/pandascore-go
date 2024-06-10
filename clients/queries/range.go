@@ -33,6 +33,17 @@ func (v ValueRange[T]) GetRangeString() string {
 	return fmt.Sprintf("%v,%v", v.Lower, v.Upper)
 }
 
+// Typed Value Ranges for convenience
+
+// StringRange represents a range of strings
+type StringRange = ValueRange[string]
+
+// IntRange represents a range of 32-bit integers
+type IntRange = ValueRange[int]
+
+// BoolRange represents a range of booleans
+type BoolRange = ValueRange[bool]
+
 func GetRangeQueryKeyValues(r Range) map[string]string {
 	return getReflectedKeyValues(r, func(value reflect.Value) string {
 		if value.IsNil() {

@@ -5,19 +5,18 @@ type MatchSortFieldKey string
 const (
 	MatchSortBeginAt      MatchSortFieldKey = "begin_at"
 	MatchSortTournamentId MatchSortFieldKey = "tournament_id"
+	MatchSortScheduledAt  MatchSortFieldKey = "scheduled_at"
 )
 
 type MatchFilter struct {
 }
 
 type MatchRange struct {
-	BeginAt *DateRange `key:"begin_at"`
+	BeginAt     *DateRange `key:"begin_at"`
+	ScheduledAt *DateRange `key:"scheduled_at"`
 }
 
-type MatchSortField struct {
-	FieldName  MatchSortFieldKey
-	Descending bool
-}
+type MatchSortField = SortFieldBase[MatchSortFieldKey]
 
 type MatchSort struct {
 	sortFields []MatchSortField
@@ -42,14 +41,6 @@ func (r MatchRange) GetRangeQuery() map[string]string {
 // endregion
 
 // region MatchSort implementation
-
-func (f MatchSortField) GetFieldName() string {
-	return string(f.FieldName)
-}
-
-func (f MatchSortField) IsDescending() bool {
-	return f.Descending
-}
 
 func (s MatchSort) GetSortFields() []SortField {
 	sortFields := make([]SortField, len(s.sortFields))
