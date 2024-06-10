@@ -18,9 +18,7 @@ type MatchRange struct {
 
 type MatchSortField = SortFieldBase[MatchSortFieldKey]
 
-type MatchSort struct {
-	sortFields []MatchSortField
-}
+type MatchSort = SortBase[MatchSortField]
 
 func NewMatchSort(sortFields []MatchSortField) MatchSort {
 	sort := MatchSort{
@@ -36,18 +34,6 @@ func NewMatchSort(sortFields []MatchSortField) MatchSort {
 
 func (r MatchRange) GetRangeQuery() map[string]string {
 	return GetRangeQueryKeyValues(r)
-}
-
-// endregion
-
-// region MatchSort implementation
-
-func (s MatchSort) GetSortFields() []SortField {
-	sortFields := make([]SortField, len(s.sortFields))
-	for i, msf := range s.sortFields {
-		sortFields[i] = msf
-	}
-	return sortFields
 }
 
 // endregion
