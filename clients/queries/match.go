@@ -44,15 +44,3 @@ func (r MatchRange) GetRangeQuery() map[string]string {
 }
 
 // endregion
-
-// region MatchSort implementation
-
-func (s MatchSort) GetSortFields() []SortField {
-	sortFields := make([]SortField, len(s.sortFields))
-	for i, msf := range s.sortFields {
-		sortFields[i] = msf
-	}
-	return sortFields
-}
-
-// endregion

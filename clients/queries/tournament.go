@@ -38,11 +38,9 @@ type TournamentRange struct {
 
 type TournamentSortField = SortFieldValue[TournamentSortFieldKey]
 
-type TournamentSort struct {
-	sortFields []TournamentSortField
-}
+type TournamentSort = SortBase[TournamentSortField]
 
-func TournamentSortByFields(sortFields []TournamentSortField) TournamentSort {
+func NewTournamentSort(sortFields []TournamentSortField) TournamentSort {
 	return TournamentSort{
 		sortFields: sortFields,
 	}
@@ -60,18 +58,6 @@ func (f TournamentFilter) GetFilterQuery() map[string]string {
 
 func (r TournamentRange) GetRangeQuery() map[string]string {
 	return GetRangeQueryKeyValues(r)
-}
-
-// endregion
-
-// region TournamentSort implementation
-
-func (s TournamentSort) GetSortFields() []SortField {
-	sortFields := make([]SortField, len(s.sortFields))
-	for i, msf := range s.sortFields {
-		sortFields[i] = msf
-	}
-	return sortFields
 }
 
 // endregion
