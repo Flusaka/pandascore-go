@@ -46,6 +46,18 @@ func (c *baseClient) Request(endpoint Endpoint) *Request {
 	}
 }
 
+func (c *baseClient) GetMatches() ([]types.Match, error) {
+	var matches []types.Match
+	err := c.Request(EndpointMatches).Get(&matches)
+	return matches, err
+}
+
+func (c *baseClient) GetMatchesWithParams(params MatchParams) ([]types.Match, error) {
+	var matches []types.Match
+	err := c.Request(EndpointMatches).WithFilter(params.Filter).WithRange(params.Range).WithSort(params.Sort).Get(&matches)
+	return matches, err
+}
+
 func (c *baseClient) GetUpcomingMatches() ([]types.Match, error) {
 	var matches []types.Match
 	err := c.Request(EndpointUpcomingMatches).Get(&matches)

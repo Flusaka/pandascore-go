@@ -15,10 +15,10 @@ type RequestMethod string
 type Endpoint string
 
 const (
-	MethodGet RequestMethod = "GET"
+	MethodGet       RequestMethod = "GET"
+	EndpointMatches Endpoint      = "matches"
 
 	EndpointUpcomingMatches Endpoint = "matches/upcoming"
-
 	// EndpointUpcomingTournaments is the endpoint to retrieve all upcoming tournaments
 	EndpointUpcomingTournaments Endpoint = "tournaments/upcoming"
 	// EndpointRunningTournaments is the endpoint to retrieve all currently running tournaments
