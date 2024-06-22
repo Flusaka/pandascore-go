@@ -34,8 +34,11 @@ type Match struct {
 	Games     []BaseGame `json:"games"`
 	League    BaseLeague `json:"league"`
 	LeagueId  int        `json:"league_id"`
-	Opponents []BaseTeam `json:"opponents"`
-	Results   []struct {
+	Opponents []struct {
+		Opponent BaseTeam `json:"opponent"`
+		Type     string   `json:"type"`
+	} `json:"opponents"`
+	Results []struct {
 		Score  int `json:"score"`
 		TeamId int `json:"team_id"`
 	} `json:"results"`
