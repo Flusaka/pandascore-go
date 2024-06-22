@@ -3,11 +3,12 @@ package clients
 import (
 	"encoding/json"
 	"fmt"
-	"github.com/flusaka/pandascore-go/clients/queries"
 	"io"
 	"net/http"
 	"net/url"
 	"strings"
+
+	"github.com/flusaka/pandascore-go/clients/queries"
 )
 
 type RequestMethod string
@@ -16,9 +17,11 @@ type Endpoint string
 const (
 	MethodGet RequestMethod = "GET"
 
-	EndpointUpcomingMatches     Endpoint = "matches/upcoming"
-	EndpointUpcomingTournaments Endpoint = "tournaments/upcoming"
+	EndpointUpcomingMatches Endpoint = "matches/upcoming"
 
+	// EndpointUpcomingTournaments is the endpoint to retrieve all upcoming tournaments
+	EndpointUpcomingTournaments Endpoint = "tournaments/upcoming"
+	// EndpointRunningTournaments is the endpoint to retrieve all currently running tournaments
 	EndpointRunningTournaments Endpoint = "tournaments/running"
 )
 
@@ -28,7 +31,7 @@ type Request struct {
 	filter     queries.Filter
 	rangeQuery queries.Range
 	sortQuery  queries.Sort
-	//Search   Search
+	//Search   queries.Search
 }
 
 func (r *Request) Get(value interface{}) error {

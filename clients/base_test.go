@@ -1,11 +1,12 @@
 package clients
 
 import (
-	"github.com/flusaka/pandascore-go/clients/queries"
-	"github.com/stretchr/testify/assert"
 	"net/url"
 	"testing"
 	"time"
+
+	"github.com/flusaka/pandascore-go/clients/queries"
+	"github.com/stretchr/testify/assert"
 )
 
 func TestNewBaseClient(t *testing.T) {
@@ -71,4 +72,21 @@ func TestBaseClient_GetRunningTournaments(t *testing.T) {
 	runningTournaments, err := baseClient.GetRunningTournaments()
 	assert.Nil(t, err)
 	assert.NotNil(t, runningTournaments)
+}
+
+func TestBaseClient_GetUpcomingTournamentsWithParams(t *testing.T) {
+	accessToken := "8FG9WnjcQBp9FkS8PA6bTQAEKYQefsBhWBjOG_hC7VYu4vWLxNM"
+	baseClient := newBaseClient(GameDota2, accessToken)
+
+	upcomingTournaments, err := baseClient.GetUpcomingTournamentsWithParams(TournamentParams{
+		Range: queries.TournamentRange{},
+		Sort: queries.NewTournamentSort([]queries.TournamentSortField{
+			{
+				FieldName:  queries.TournamentSortBeginAt,
+				Descending: false,
+			},
+		}),
+	})
+	assert.Nil(t, err)
+	assert.NotNil(t, upcomingTournaments)
 }

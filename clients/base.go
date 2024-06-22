@@ -1,10 +1,11 @@
 package clients
 
 import (
-	"github.com/flusaka/pandascore-go/clients/queries"
-	"github.com/flusaka/pandascore-go/types"
 	"net/http"
 	"net/url"
+
+	"github.com/flusaka/pandascore-go/clients/queries"
+	"github.com/flusaka/pandascore-go/types"
 )
 
 type Game string
@@ -45,8 +46,8 @@ func (c *baseClient) Request(endpoint Endpoint) *Request {
 	}
 }
 
-func (c *baseClient) GetUpcomingMatches() ([]types.BaseMatch, error) {
-	var matches []types.BaseMatch
+func (c *baseClient) GetUpcomingMatches() ([]types.Match, error) {
+	var matches []types.Match
 	err := c.Request(EndpointUpcomingMatches).Get(&matches)
 	return matches, err
 }

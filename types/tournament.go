@@ -5,12 +5,11 @@ import "time"
 type Tier string
 
 const (
-	TierS        Tier = "s"
-	TierA        Tier = "a"
-	TierB        Tier = "b"
-	TierC        Tier = "c"
-	TierD        Tier = "d"
-	TierUnranked Tier = "unranked"
+	TierS Tier = "s"
+	TierA Tier = "a"
+	TierB Tier = "b"
+	TierC Tier = "c"
+	TierD Tier = "d"
 )
 
 type BaseTournament struct {
@@ -28,4 +27,9 @@ type BaseTournament struct {
 	Tier          Tier      `json:"tier"`
 	WinnerId      *int      `json:"winner_id"`
 	WinnerType    string    `json:"winner_type"`
+}
+
+type Tournament struct {
+	BaseTournament `json:",inline"`
+	Matches        []BaseMatch `json:"matches"`
 }

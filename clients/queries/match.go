@@ -5,6 +5,7 @@ type MatchSortFieldKey string
 const (
 	MatchSortBeginAt      MatchSortFieldKey = "begin_at"
 	MatchSortTournamentId MatchSortFieldKey = "tournament_id"
+	MatchSortScheduledAt  MatchSortFieldKey = "scheduled_at"
 )
 
 func (k MatchSortFieldKey) String() string { return string(k) }
@@ -19,9 +20,7 @@ type MatchRange struct {
 
 type MatchSortField = SortFieldValue[MatchSortFieldKey]
 
-type MatchSort struct {
-	sortFields []MatchSortField
-}
+type MatchSort = SortBase[MatchSortField]
 
 func NewMatchSort(sortFields []MatchSortField) MatchSort {
 	sort := MatchSort{
