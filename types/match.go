@@ -15,11 +15,14 @@ type BaseMatch struct {
 	Games               []BaseGame   `json:"games"`
 	Name                string       `json:"name"`
 	StreamsList         []BaseStream `json:"streams_list"`
-	Opponents           []BaseTeam   `json:"opponents"`
-	Slug                string       `json:"slug"`
-	WinnerId            int          `json:"winner_id"`
-	LeagueId            int          `json:"league_id"`
-	Live                struct {
+	Opponents           []struct {
+		Opponent BaseTeam `json:"opponent"`
+		Type     string   `json:"type"`
+	} `json:"opponents"`
+	Slug     string `json:"slug"`
+	WinnerId int    `json:"winner_id"`
+	LeagueId int    `json:"league_id"`
+	Live     struct {
 		OpensAt   time.Time `json:"opens_at"`
 		Supported bool      `json:"supported"`
 		Url       string    `json:"url"`
